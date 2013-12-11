@@ -4,6 +4,8 @@ namespace Lamb\Parachute;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
+use Illuminate\Database\DatabaseManager;
+use Lamb\LaravelGenericDatabase\ConnectionFactory;
 
 class Capsule extends \Illuminate\Database\Capsule\Manager {
     
@@ -21,4 +23,11 @@ class Capsule extends \Illuminate\Database\Capsule\Manager {
         $this->bootEloquent();
     }
     
+	protected function setupManager()
+	{
+		$factory = new ConnectionFactory($this->container);
+
+		$this->manager = new DatabaseManager($this->container, $factory);
+	}
+
 }
