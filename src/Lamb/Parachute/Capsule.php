@@ -1,6 +1,4 @@
-<?php
-
-namespace Lamb\Parachute;
+<?php namespace Lamb\Parachute;
 
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
