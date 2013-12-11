@@ -1,0 +1,24 @@
+{
+    "name": "lamb/parachute",
+    "type": "library",
+    "homepage": "http://github.com/greglamb/parachute",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Greg Lamb",
+            "email": "email@greglamb.me",
+            "homepage": "http://github.com/greglamb"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/database": "4.0.x",
+	"lamb/laravel-generic-database": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lamb\\Parachute": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
