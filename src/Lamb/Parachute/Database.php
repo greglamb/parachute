@@ -1,32 +1,9 @@
 <?php namespace Lamb\Parachute;
 
-use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
-use Illuminate\Database\DatabaseManager;
-use Lamb\LaravelGenericDatabase\ConnectionFactory;
+class Database extends DatabaseCapsule {
 
-class Database extends \Illuminate\Database\Capsule\Manager {
-
-    public function __construct($configuration)
-    {
-        $this->setupContainer(null);
-        $this->setupDefaultConfiguration();
-        $this->setupManager();
-
-        $this->addConnection($configuration);
-
-        $this->setEventDispatcher(new Dispatcher(new Container));
-        $this->setAsGlobal();
-
-        $this->bootEloquent();
+    public function __construct(array $connection) {
+        Ardent::configureAsExternal($connection);
     }
 
-        protected function setupManager()
-        {
-                $factory = new ConnectionFactory($this->container);
-
-                $this->manager = new DatabaseManager($this->container, $factory);
-        }
-
 }
-
