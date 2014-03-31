@@ -17,6 +17,7 @@ github_branch   = "master"
 server_ip             = "192.168.33.10"
 server_memory         = "512" # MB
 server_timezone       = "UTC"
+server_hostname       = "parachute.dev"
 
 # Database Configuration
 mysql_root_password   = "password"   # We'll assume user "root"
@@ -103,7 +104,7 @@ Vagrant.configure("2") do |config|
   # Create a hostname, don't forget to put it to the `hosts` file
   # This will point to the server's default virtual host
   # TO DO: Make this work with virtualhost along-side xip.io URL
-  config.vm.hostname = "vaprobash.dev"
+  config.vm.hostname = server_hostname
 
   # Create a static IP
   config.vm.network :private_network, ip: server_ip
